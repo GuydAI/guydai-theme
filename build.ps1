@@ -20,9 +20,11 @@ function Add-Entry($zip, $file, $name) {
     $out.Dispose()
 }
 
-Add-Entry $zip (Join-Path $src 'META-INF\plugin.xml') 'META-INF/plugin.xml'
-Add-Entry $zip (Join-Path $src 'guydai.theme.json')   'guydai.theme.json'
-Add-Entry $zip (Join-Path $src 'GuydAI.icls')         'GuydAI.icls'
+Add-Entry $zip (Join-Path $src 'META-INF\plugin.xml')       'META-INF/plugin.xml'
+Add-Entry $zip (Join-Path $src 'META-INF\pluginIcon.svg')   'META-INF/pluginIcon.svg'
+Add-Entry $zip (Join-Path $src 'META-INF\pluginIcon_dark.svg') 'META-INF/pluginIcon_dark.svg'
+Add-Entry $zip (Join-Path $src 'guydai.theme.json')         'guydai.theme.json'
+Add-Entry $zip (Join-Path $src 'GuydAI.icls')               'GuydAI.icls'
 $zip.Dispose()
 
 Write-Host ("Built " + $jar + "  (" + (Get-Item $jar).Length + " bytes)") -ForegroundColor Green

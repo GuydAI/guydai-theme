@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.guydai.theme</id>
   <name>GuydAI Theme</name>
-  <version>1.1.1</version>
+  <version>1.1.2</version>
   <vendor email="admin@guydai.com" url="https://guydai.com">GuydAI</vendor>
 
   <description><![CDATA[
@@ -27,14 +27,22 @@
        The matching editor color scheme is applied automatically.</p>
 
     <p>Source &amp; downloads: <a href="https://github.com/GuydAI/guydai-theme">github.com/GuydAI/guydai-theme</a></p>
+
+    <p style="color:#888; font-size:11px; margin-top:14px;">
+      Built by <a href="https://guydai.com">guydai.com</a> &mdash; an AI system that watches the market
+      24/7, scores every opportunity, and can trade for you.
+    </p>
   ]]></description>
 
   <change-notes><![CDATA[
+    <b>1.1.2</b> &mdash; Plugin icon (gold diamond logo) and marketplace polish.<br/>
     <b>1.1.1</b> &mdash; Overview screenshot &amp; richer plugin description.<br/>
     <b>1.1.0</b> &mdash; "Cyber Ice" redesign: pure-black chrome, electric-blue lead, hot-pink pops.
                         Editor color scheme unchanged.<br/>
     <b>1.0.0</b> &mdash; Initial release. Navy chrome with gold accents.
   ]]></change-notes>
+
+  <category>Theme</category>
 
   <!-- Compatible with 2024.1+ including PyCharm 2025.2 (build 252). -->
   <idea-version since-build="241"/>
