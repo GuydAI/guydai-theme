@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GuydAI — Cyber Ice (final)</title>
+<style>
+  :root { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --black:#04050a; --chrome:#080a12; --card:#0e131f; --bd:#18202e; --bdl:#263141;
+    --blue:#38bdf8; --pink:#ff2e97; --green:#34d399; --tx:#eaf2fb; --dim:#93a3ba; --mut:#56657e;
+    --sel:#0d2c44; --ink:#04141f; --pglow:rgba(56,189,248,.5); --kglow:rgba(255,46,151,.55); }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#0b0c10; color:var(--tx); padding:34px 22px 60px; display:flex; flex-direction:column; align-items:center; }
+  h1 { font-size:23px; font-weight:800; letter-spacing:-.4px; margin:0 0 4px; }
+  h1 b { color:var(--blue); } h1 i { color:var(--pink); font-style:normal; }
+  .cap { color:var(--dim); font-size:13.5px; margin:0 0 22px; text-align:center; max-width:680px; line-height:1.6; }
+  .cap .k { color:var(--pink); } .cap .b { color:var(--blue); }
+
+  .win { width:100%; max-width:720px; border-radius:13px; overflow:hidden; border:1px solid var(--bd);
+    box-shadow:0 30px 80px rgba(0,0,0,.6); font-size:13px; position:relative; }
+  .titlebar { display:flex; align-items:center; gap:9px; padding:9px 13px; background:var(--black); color:var(--dim); border-bottom:1px solid var(--bd); }
+  .dots { display:flex; gap:6px; } .dots i { width:11px; height:11px; border-radius:50%; display:block; }
+  .titlebar .t b { color:var(--tx); font-weight:600; }
+  .toolbar { display:flex; align-items:center; gap:13px; padding:8px 13px; background:var(--black); border-bottom:1px solid var(--bd); }
+  .toolbar .proj { color:var(--tx); font-weight:600; } .toolbar .proj small { color:var(--mut); }
+  .run { margin-left:auto; background:var(--blue); color:var(--ink); padding:5px 15px; border-radius:6px; font-weight:700; box-shadow:0 0 16px var(--pglow); }
+  .ic { color:var(--dim); font-size:15px; }
+
+  .bodyrow { display:flex; background:var(--chrome); min-height:300px; }
+  .stripe { display:flex; flex-direction:column; gap:16px; padding:12px 10px; background:var(--black); border-right:1px solid var(--bd); color:var(--mut); font-size:14px; }
+  .stripe .on { color:var(--blue); text-shadow:0 0 11px var(--pglow); }
+  .tree { width:178px; padding:11px 11px; border-right:1px solid var(--bd); color:var(--dim); }
+  .tree .h { color:var(--mut); text-transform:uppercase; font-size:10px; letter-spacing:1.2px; margin-bottom:10px; }
+  .tree .row { padding:4px 6px; border-radius:5px; white-space:nowrap; display:flex; align-items:center; }
+  .tree .row.sel { background:var(--sel); color:var(--tx); }
+  .tree .row.ind { padding-left:20px; }
+  .badge { background:var(--pink); color:var(--ink); border-radius:9px; padding:0 7px; font-size:10px; font-weight:800; margin-left:auto; box-shadow:0 0 11px var(--kglow); }
+
+  .main { flex:1; display:flex; flex-direction:column; min-width:0; position:relative; }
+  .tabs { display:flex; background:var(--chrome); border-bottom:1px solid var(--bd); }
+  .tab { padding:8px 16px; color:var(--mut); border-right:1px solid var(--bd); }
+  .tab.active { color:var(--tx); background:#0a0e1a; border-bottom:2px solid var(--blue); box-shadow:0 3px 13px var(--pglow); }
+  .editor { flex:1; background:#0a0e1a; padding:11px 4px 16px 0; font-family:'JetBrains Mono',Consolas,Menlo,monospace; font-size:12px; line-height:1.7; }
+  .line { display:flex; white-space:pre; } .line.cr { background:#11192c; }
+  .ln { color:#3a4665; width:30px; text-align:right; margin-right:15px; user-select:none; flex:none; }
+  .kw{color:#d4af37;font-weight:700;} .st{color:#34d399;} .nu{color:#a78bfa;}
+  .cm{color:#6b7591;font-style:italic;} .fn{color:#60a5fa;} .cl{color:#ffe9a3;}
+  .bi{color:#5eead4;} .pa{color:#b4bdd1;font-style:italic;} .df{color:#f8fafc;}
+  .caret{display:inline-block;width:2px;height:14px;background:var(--blue);vertical-align:-2px;box-shadow:0 0 7px var(--pglow);}
+
+  /* completion popup overlaying the editor — shows the hot-pink match highlight */
+  .pop { position:absolute; left:150px; top:150px; width:236px; background:var(--card); border:1px solid var(--bdl);
+    border-radius:8px; box-shadow:0 18px 40px rgba(0,0,0,.6); overflow:hidden; font-size:12px; }
+  .pop .it { padding:5px 11px; color:var(--dim); display:flex; gap:7px; align-items:center; }
+  .pop .it.sel { background:var(--sel); color:var(--tx); }
+  .pop .m { color:var(--pink); font-weight:700; }
+  .pop .ty { margin-left:auto; color:var(--mut); font-size:10.5px; }
+  .pop .dot{width:7px;height:7px;border-radius:2px;background:var(--blue);}
+
+  .statusbar { display:flex; align-items:center; gap:17px; padding:6px 14px; background:var(--black); border-top:1px solid var(--bd); color:var(--dim); font-size:11.5px; }
+  .statusbar .br { color:var(--blue); } .statusbar .enc { color:var(--pink); margin-left:auto; }
+
+  .legend { margin-top:20px; display:flex; gap:9px; flex-wrap:wrap; justify-content:center; }
+  .legend span { font-size:11px; color:#cdd6e6; padding:5px 11px; border-radius:7px; border:1px solid var(--bd); display:flex; align-items:center; gap:7px; background:#0c0e14; }
+  .legend i { width:12px; height:12px; border-radius:3px; display:block; }
+</style>
+</head>
+<body>
+  <h1>GuydAI — <b>Cyber Ice</b> <span style="color:var(--mut)">+</span> <i>hot pink</i></h1>
+  <p class="cap">Pure-black chrome · electric-<span class="b">blue</span> lead · <span class="k">hot-pink</span> pops.
+    The editor interior stays navy + gold — your color scheme, untouched.</p>
+
+  <div class="win">
+    <div class="titlebar">
+      <div class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+      <div class="t">guydai · <b>main.py</b></div>
+    </div>
+    <div class="toolbar">
+      <span class="proj">guydai <small>&#9662;</small></span>
+      <span class="run">&#9654; Run</span>
+      <span class="ic">&#128270;</span><span class="ic">&#9881;</span>
+    </div>
+    <div class="bodyrow">
+      <div class="stripe"><span class="on">&#9776;</span><span>&#9095;</span><span>&#9733;</span><span>&#9881;</span></div>
+      <div class="tree">
+        <div class="h">Project</div>
+        <div class="row">&#9656; api</div>
+        <div class="row sel">&#9662; core</div>
+        <div class="row ind">scanner.py</div>
+        <div class="row ind">scoring.py</div>
+        <div class="row">&#9656; services <span class="badge">3</span></div>
+        <div class="row">&#9656; web</div>
+        <div class="row">&#9656; tests <span class="badge">7</span></div>
+      </div>
+      <div class="main">
+        <div class="tabs"><span class="tab active">main.py</span><span class="tab">scoring.py</span><span class="tab">index.html</span></div>
+        <div class="editor">
+          <div class="line"><span class="ln">1</span><span class="st">"""GuydAI entry point."""</span></div>
+          <div class="line"><span class="ln">2</span><span class="kw">import</span> <span class="df">logging</span></div>
+          <div class="line"><span class="ln">3</span><span class="kw">from</span> <span class="df">fastapi</span> <span class="kw">import</span> <span class="cl">FastAPI</span></div>
+          <div class="line"><span class="ln">4</span></div>
+          <div class="line"><span class="ln">5</span><span class="df">logger</span> = <span class="df">logging</span>.<span class="fn">getLogger</span>(<span class="bi">__name__</span>)</div>
+          <div class="line"><span class="ln">6</span></div>
+          <div class="line"><span class="ln">7</span><span class="cl">@asynccontextmanager</span></div>
+          <div class="line"><span class="ln">8</span><span class="kw">async def</span> <span class="fn">lifespan</span>(<span class="pa">app</span>: <span class="cl">FastAPI</span>):</div>
+          <div class="line cr"><span class="ln">9</span>    <span class="df">logger</span>.<span class="fn">info</span>(<span class="st">"GuydAI starting"</span>, <span class="pa">port</span>=<span class="nu">8000</span>)<span class="caret"></span></div>
+          <div class="line"><span class="ln">10</span>    <span class="kw">yield</span></div>
+          <div class="line"><span class="ln">11</span></div>
+        </div>
+        <div class="pop">
+          <div class="it sel"><span class="dot"></span><span><span class="m">info</span></span><span class="ty">method</span></div>
+          <div class="it"><span class="dot"></span><span><span class="m">info</span>rmation</span><span class="ty">var</span></div>
+          <div class="it"><span class="dot"></span><span><span class="m">in</span>stance</span><span class="ty">field</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="statusbar"><span class="br">&#9095; main</span><span>Python 3.12 (guydai)</span><span>UTF-8</span><span class="enc">&#9679; LF</span></div>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:#04050a;border:1px solid #1b2030"></i>#04050a black</span>
+    <span><i style="background:#080a12;border:1px solid #1b2030"></i>#080a12 chrome</span>
+    <span><i style="background:#38bdf8"></i>#38bdf8 electric blue</span>
+    <span><i style="background:#ff2e97"></i>#ff2e97 hot pink</span>
+    <span><i style="background:#34d399"></i>#34d399 run</span>
+    <span><i style="background:#0a0e1a;border:1px solid #1b2030"></i>#0a0e1a editor (gold syntax)</span>
+  </div>
+</body>
+</html>

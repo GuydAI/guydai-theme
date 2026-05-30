@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# JetBrains project files (this repo is theme source, not an IDE project)
+.idea/
+*.iml
+
+# Editor cruft
+*.swp
+*~

@@ -1,0 +1,26 @@
+<idea-plugin>
+  <id>com.guydai.theme</id>
+  <name>GuydAI Theme</name>
+  <version>1.1.0</version>
+  <vendor email="admin@guydai.com" url="https://guydai.com">GuydAI</vendor>
+
+  <description><![CDATA[
+    Cyber dark theme for the GuydAI project. Pure-black IDE chrome with electric-blue
+    and hot-pink neon accents, wrapped around the navy + gold "GuydAI" editor color scheme.
+  ]]></description>
+
+  <change-notes><![CDATA[
+    1.1.0 — "Cyber Ice" redesign: pure-black (#04050a) chrome, electric-blue (#38bdf8)
+            lead accents, hot-pink (#ff2e97) pops. Editor color scheme unchanged.
+    1.0.0 — Initial release. Navy chrome with gold accents.
+  ]]></change-notes>
+
+  <!-- Compatible with 2024.1+ including PyCharm 2025.2 (build 252). -->
+  <idea-version since-build="241"/>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <themeProvider id="com.guydai.theme.guydai" path="/guydai.theme.json"/>
+  </extensions>
+</idea-plugin>

@@ -1,0 +1,654 @@
+{
+  "name": "GuydAI",
+  "dark": true,
+  "author": "GuydAI",
+  "editorScheme": "/GuydAI.icls",
+  "colors": {
+    "navy": "#0a0e1a",
+    "black": "#04050a",
+    "chrome": "#080a12",
+    "card": "#0e131f",
+    "cardHover": "#161d2b",
+    "border": "#18202e",
+    "borderLight": "#263141",
+    "blue": "#38bdf8",
+    "blueLight": "#7dd3fc",
+    "blueDark": "#0ea5e9",
+    "pink": "#ff2e97",
+    "pinkLight": "#ff6db0",
+    "cyan": "#22d3ee",
+    "green": "#34d399",
+    "greenLight": "#6ee7b7",
+    "purple": "#a855f7",
+    "purpleLight": "#c4b5fd",
+    "amber": "#fbbf24",
+    "red": "#f87171",
+    "textPrimary": "#eaf2fb",
+    "textSecondary": "#93a3ba",
+    "textMuted": "#56657e",
+    "selection": "#0d2c44",
+    "onAccent": "#04141f"
+  },
+  "ui": {
+    "*": {
+      "background": "chrome",
+      "foreground": "textPrimary",
+      "infoForeground": "textMuted",
+      "errorForeground": "red",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "selectionInactiveBackground": "border",
+      "selectionInactiveForeground": "textPrimary",
+      "disabledBackground": "chrome",
+      "disabledForeground": "textMuted",
+      "disabledText": "textMuted",
+      "inactiveBackground": "chrome",
+      "inactiveForeground": "textMuted",
+      "borderColor": "border",
+      "disabledBorderColor": "border",
+      "focusColor": "blue",
+      "focusedBorderColor": "blue",
+      "separatorColor": "border",
+      "acceleratorForeground": "blue",
+      "hoverBackground": "cardHover"
+    },
+    "ActionButton": {
+      "hoverBackground": "card",
+      "hoverBorderColor": "card",
+      "pressedBackground": "cardHover",
+      "pressedBorderColor": "cardHover"
+    },
+    "Banner": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "errorBackground": "#2a0f1c",
+      "warningBackground": "#241c08",
+      "infoBackground": "#08202e",
+      "successBackground": "#08241d"
+    },
+    "Bookmark": {
+      "iconBackground": "pink",
+      "Mnemonic": {
+        "iconForeground": "onAccent",
+        "iconBackground": "pink",
+        "iconBorderColor": "pinkLight"
+      }
+    },
+    "Borders": {
+      "color": "border",
+      "ContrastBorderColor": "border"
+    },
+    "Button": {
+      "startBackground": "card",
+      "endBackground": "card",
+      "startBorderColor": "borderLight",
+      "endBorderColor": "borderLight",
+      "foreground": "textPrimary",
+      "focusColor": "blue",
+      "focusedBorderColor": "blue",
+      "disabledBorderColor": "border",
+      "default": {
+        "startBackground": "blue",
+        "endBackground": "blueDark",
+        "startBorderColor": "blue",
+        "endBorderColor": "blueDark",
+        "foreground": "onAccent",
+        "focusColor": "blueLight",
+        "focusedBorderColor": "blueLight"
+      }
+    },
+    "Counter": {
+      "background": "pink",
+      "foreground": "onAccent"
+    },
+    "CheckBox": {
+      "background": "chrome",
+      "foreground": "textPrimary"
+    },
+    "CheckBoxMenuItem": {
+      "background": "card",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "acceleratorForeground": "textMuted",
+      "acceleratorSelectionForeground": "textPrimary"
+    },
+    "ComboBox": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "nonEditableBackground": "card",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "ArrowButton": {
+        "background": "card",
+        "nonEditableBackground": "card",
+        "iconColor": "textSecondary",
+        "disabledIconColor": "textMuted"
+      }
+    },
+    "ComboBoxButton": {
+      "background": "card"
+    },
+    "Company": {
+      "background": "black",
+      "linkForeground": "blue"
+    },
+    "Component": {
+      "focusColor": "blue",
+      "focusedBorderColor": "blue",
+      "borderColor": "border",
+      "disabledBorderColor": "border",
+      "errorFocusColor": "red",
+      "inactiveErrorFocusColor": "#5b2330",
+      "warningFocusColor": "amber",
+      "inactiveWarningFocusColor": "#7a5a12",
+      "iconColor": "textSecondary",
+      "infoForeground": "textMuted"
+    },
+    "CompletionPopup": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "selectionInactiveBackground": "border",
+      "matchForeground": "pink",
+      "matchSelectionForeground": "pinkLight",
+      "infoForeground": "textMuted"
+    },
+    "Counter.Badge": {
+      "background": "pink",
+      "foreground": "onAccent"
+    },
+    "DefaultTabs": {
+      "background": "chrome",
+      "underlinedTabBackground": "card",
+      "underlinedTabForeground": "textPrimary",
+      "underlineColor": "blue",
+      "inactiveUnderlineColor": "border",
+      "hoverBackground": "card",
+      "borderColor": "border",
+      "inactiveColoredFileBackground": "chrome"
+    },
+    "Editor": {
+      "background": "navy",
+      "shortcutForeground": "blue",
+      "SearchField": {
+        "background": "card"
+      },
+      "ToolTip": {
+        "background": "card",
+        "foreground": "textPrimary"
+      }
+    },
+    "EditorTabs": {
+      "background": "chrome",
+      "borderColor": "border",
+      "underlinedTabBackground": "navy",
+      "underlinedTabForeground": "textPrimary",
+      "underlineColor": "blue",
+      "inactiveUnderlineColor": "border",
+      "hoverBackground": "card",
+      "selectedBackground": "navy",
+      "selectedForeground": "textPrimary",
+      "inactiveColoredFileBackground": "chrome",
+      "underlineHeight": 2
+    },
+    "FileColor": {
+      "Yellow": "#1f1c0d",
+      "Green": "#08241d",
+      "Blue": "#08202e",
+      "Violet": "#160d2e",
+      "Orange": "#21160d",
+      "Rose": "#26101c"
+    },
+    "Focus": {
+      "borderColor": "blue"
+    },
+    "Group": {
+      "separatorColor": "border"
+    },
+    "GotItTooltip": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "borderColor": "borderLight",
+      "shortcutForeground": "blue",
+      "Button": {
+        "background": "blue",
+        "foreground": "onAccent"
+      }
+    },
+    "Label": {
+      "foreground": "textPrimary",
+      "disabledForeground": "textMuted",
+      "selectedForeground": "textPrimary",
+      "errorForeground": "red"
+    },
+    "Link": {
+      "activeForeground": "blue",
+      "hoverForeground": "pink",
+      "visitedForeground": "purpleLight",
+      "pressedForeground": "pinkLight",
+      "secondaryForeground": "textSecondary"
+    },
+    "List": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "selectionInactiveBackground": "border",
+      "selectionInactiveForeground": "textPrimary",
+      "hoverBackground": "cardHover",
+      "hoverInactiveBackground": "card"
+    },
+    "MainMenu": {
+      "background": "black",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary"
+    },
+    "MainToolbar": {
+      "background": "black",
+      "inactiveBackground": "black",
+      "Dropdown": {
+        "hoverBackground": "card",
+        "pressedBackground": "cardHover",
+        "transparentHoverBackground": "card"
+      },
+      "Icon": {
+        "hoverBackground": "card",
+        "pressedBackground": "cardHover"
+      }
+    },
+    "Menu": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "borderColor": "border",
+      "separatorColor": "border"
+    },
+    "MenuBar": {
+      "background": "black",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "borderColor": "border",
+      "disabledForeground": "textMuted"
+    },
+    "MenuItem": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "disabledForeground": "textMuted",
+      "acceleratorForeground": "textMuted",
+      "acceleratorSelectionForeground": "textPrimary"
+    },
+    "NavBar": {
+      "background": "chrome",
+      "borderColor": "border"
+    },
+    "Notification": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "borderColor": "borderLight",
+      "errorBackground": "#2a0f1c",
+      "errorBorderColor": "red",
+      "errorForeground": "textPrimary",
+      "MoreButton": {
+        "background": "card",
+        "foreground": "blue",
+        "innerBorderColor": "border"
+      },
+      "ToolWindow": {
+        "informativeBackground": "card",
+        "informativeForeground": "textPrimary",
+        "informativeBorderColor": "border",
+        "warningBackground": "#241c08",
+        "warningForeground": "textPrimary",
+        "warningBorderColor": "amber",
+        "errorBackground": "#2a0f1c",
+        "errorForeground": "textPrimary",
+        "errorBorderColor": "red"
+      }
+    },
+    "Panel": {
+      "background": "chrome",
+      "foreground": "textPrimary"
+    },
+    "Plugins": {
+      "background": "chrome",
+      "lightSelectionBackground": "card",
+      "hoverBackground": "card",
+      "tagBackground": "card",
+      "tagForeground": "textSecondary",
+      "SearchField": {
+        "background": "card",
+        "borderColor": "border"
+      },
+      "SectionHeader": {
+        "background": "chrome",
+        "foreground": "textSecondary"
+      },
+      "Button": {
+        "installBackground": "blue",
+        "installForeground": "onAccent",
+        "installBorderColor": "blue",
+        "installFillBackground": "blue",
+        "installFillForeground": "onAccent",
+        "updateBackground": "pink",
+        "updateForeground": "onAccent"
+      }
+    },
+    "Popup": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "borderColor": "borderLight",
+      "separatorColor": "border",
+      "separatorForeground": "textMuted",
+      "Header": {
+        "activeBackground": "card",
+        "inactiveBackground": "chrome"
+      },
+      "Advertiser": {
+        "background": "chrome",
+        "foreground": "textMuted"
+      },
+      "Toolbar": {
+        "background": "card",
+        "borderColor": "border"
+      }
+    },
+    "PopupMenu": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "borderColor": "border",
+      "selectionBackground": "selection"
+    },
+    "ProgressBar": {
+      "trackColor": "border",
+      "progressColor": "blue",
+      "indeterminateStartColor": "blue",
+      "indeterminateEndColor": "blueLight",
+      "passedColor": "blue",
+      "passedEndColor": "blueLight",
+      "failedColor": "red",
+      "failedEndColor": "#fca5a5"
+    },
+    "RadioButton": {
+      "background": "chrome",
+      "foreground": "textPrimary"
+    },
+    "RadioButtonMenuItem": {
+      "background": "card",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "acceleratorForeground": "textMuted"
+    },
+    "RunWidget": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "hoverBackground": "cardHover",
+      "pressedBackground": "cardHover",
+      "iconColor": "green",
+      "separatorColor": "border",
+      "runningIconColor": "green",
+      "runningBackground": "card",
+      "stopBackground": "card",
+      "stopIconColor": "red"
+    },
+    "ScrollBar": {
+      "thumbColor": "#26314199",
+      "thumbBorderColor": "#26314100",
+      "hoverThumbColor": "#3a4f6acc",
+      "hoverThumbBorderColor": "#3a4f6a00",
+      "Transparent": {
+        "thumbColor": "#26314188",
+        "thumbBorderColor": "#26314100",
+        "hoverThumbColor": "#3a4f6acc",
+        "hoverThumbBorderColor": "#3a4f6a00"
+      },
+      "Mac": {
+        "thumbColor": "#26314199",
+        "hoverThumbColor": "#3a4f6acc",
+        "Transparent": {
+          "thumbColor": "#26314188",
+          "hoverThumbColor": "#3a4f6acc"
+        }
+      }
+    },
+    "SearchEverywhere": {
+      "Header": {
+        "background": "chrome"
+      },
+      "SearchField": {
+        "background": "card",
+        "borderColor": "border",
+        "infoForeground": "textMuted"
+      },
+      "Tab": {
+        "selectedBackground": "selection",
+        "selectedForeground": "textPrimary"
+      },
+      "List": {
+        "separatorColor": "border",
+        "separatorForeground": "textMuted"
+      },
+      "Advertiser": {
+        "background": "chrome",
+        "foreground": "textMuted"
+      }
+    },
+    "SegmentedButton": {
+      "selectedStartBorderColor": "blue",
+      "selectedEndBorderColor": "blueDark",
+      "selectedButtonColor": "card",
+      "focusedSelectedButtonColor": "cardHover"
+    },
+    "Separator": {
+      "separatorColor": "border",
+      "foreground": "border"
+    },
+    "SidePanel": {
+      "background": "chrome"
+    },
+    "Slider": {
+      "background": "chrome",
+      "buttonColor": "blue",
+      "buttonBorderColor": "blueDark",
+      "trackColor": "border",
+      "tickColor": "textMuted"
+    },
+    "StatusBar": {
+      "background": "chrome",
+      "foreground": "textSecondary",
+      "borderColor": "border",
+      "hoverBackground": "card",
+      "Breadcrumbs": {
+        "selectionBackground": "selection",
+        "selectionForeground": "textPrimary",
+        "hoverBackground": "card"
+      }
+    },
+    "TabbedPane": {
+      "background": "chrome",
+      "foreground": "textSecondary",
+      "selectedForeground": "textPrimary",
+      "underlineColor": "blue",
+      "disabledUnderlineColor": "border",
+      "contentAreaColor": "border",
+      "focusColor": "card",
+      "hoverColor": "card"
+    },
+    "Table": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "gridColor": "border",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "selectionInactiveBackground": "border",
+      "stripeColor": "chrome",
+      "hoverBackground": "cardHover",
+      "lightSelectionBackground": "selection",
+      "lightSelectionInactiveBackground": "border"
+    },
+    "TableHeader": {
+      "background": "chrome",
+      "foreground": "textSecondary",
+      "separatorColor": "border",
+      "bottomSeparatorColor": "border"
+    },
+    "TextArea": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "caretForeground": "blue"
+    },
+    "TextField": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "caretForeground": "blue"
+    },
+    "FormattedTextField": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection"
+    },
+    "PasswordField": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "caretForeground": "blue"
+    },
+    "SearchField": {
+      "background": "card",
+      "borderColor": "border"
+    },
+    "TitlePane": {
+      "background": "black",
+      "inactiveBackground": "black",
+      "foreground": "textPrimary",
+      "inactiveForeground": "textMuted",
+      "borderColor": "border",
+      "infoForeground": "textMuted"
+    },
+    "ToolbarComboWidget": {
+      "hoverBackground": "card",
+      "pressedBackground": "cardHover"
+    },
+    "ToolTip": {
+      "background": "card",
+      "foreground": "textPrimary",
+      "borderColor": "borderLight",
+      "Actions": {
+        "background": "chrome",
+        "infoForeground": "textMuted"
+      }
+    },
+    "ToolWindow": {
+      "background": "chrome",
+      "Header": {
+        "background": "chrome",
+        "inactiveBackground": "chrome",
+        "borderColor": "border",
+        "foreground": "textPrimary",
+        "inactiveForeground": "textSecondary"
+      },
+      "HeaderTab": {
+        "underlinedTabBackground": "card",
+        "underlinedTabForeground": "textPrimary",
+        "underlineColor": "blue",
+        "inactiveUnderlineColor": "border",
+        "hoverBackground": "card",
+        "hoverInactiveBackground": "card",
+        "selectedBackground": "card",
+        "selectedInactiveBackground": "chrome",
+        "underlineHeight": 2
+      },
+      "Button": {
+        "hoverBackground": "card",
+        "selectedBackground": "selection",
+        "selectedForeground": "textPrimary"
+      }
+    },
+    "Tree": {
+      "background": "chrome",
+      "foreground": "textPrimary",
+      "selectionBackground": "selection",
+      "selectionForeground": "textPrimary",
+      "selectionInactiveBackground": "border",
+      "selectionInactiveForeground": "textPrimary",
+      "hoverBackground": "card",
+      "hoverInactiveBackground": "card",
+      "rowHeight": 24
+    },
+    "ValidationTooltip": {
+      "errorBackground": "#2a0f1c",
+      "errorBorderColor": "red",
+      "warningBackground": "#241c08",
+      "warningBorderColor": "amber"
+    },
+    "VersionControl": {
+      "GitLog": {
+        "localBranchIconColor": "green",
+        "remoteBranchIconColor": "blue",
+        "tagIconColor": "pink",
+        "headIconColor": "blueLight",
+        "otherIconColor": "purpleLight"
+      },
+      "RefLabel": {
+        "backgroundBase": "card",
+        "foreground": "textSecondary"
+      },
+      "FileHistory": {
+        "Commit": {
+          "selectedBackground": "selection"
+        }
+      }
+    },
+    "WelcomeScreen": {
+      "background": "black",
+      "borderColor": "border",
+      "separatorColor": "border",
+      "Projects": {
+        "background": "chrome",
+        "selectionBackground": "selection",
+        "selectionInactiveBackground": "border",
+        "hoverBackground": "card",
+        "actions": {
+          "background": "chrome"
+        }
+      }
+    }
+  },
+  "icons": {
+    "ColorPalette": {
+      "Actions.Red": "#f87171",
+      "Actions.Yellow": "#fbbf24",
+      "Actions.Green": "#34d399",
+      "Actions.Blue": "#38bdf8",
+      "Actions.Grey": "#93a3ba",
+      "Actions.GreyInline.Dark": "#93a3ba",
+      "Objects.Grey": "#56657e",
+      "Objects.RedStatus": "#f87171",
+      "Objects.Red": "#ff2e97",
+      "Objects.Pink": "#ff6db0",
+      "Objects.Yellow": "#fbbf24",
+      "Objects.YellowDark": "#d99a1c",
+      "Objects.Green": "#34d399",
+      "Objects.Blue": "#38bdf8",
+      "Objects.Purple": "#a855f7",
+      "Objects.BlackText": "#04141f",
+      "Checkbox.Background.Default.Dark": "#0e131f",
+      "Checkbox.Border.Default.Dark": "#263141",
+      "Checkbox.Foreground.Selected.Dark": "#04141f",
+      "Checkbox.Background.Selected.Dark": "#38bdf8",
+      "Checkbox.Border.Selected.Dark": "#38bdf8",
+      "Checkbox.Focus.Thin.Default.Dark": "#38bdf8",
+      "Checkbox.Focus.Wide.Dark": "#38bdf8",
+      "Checkbox.Foreground.Disabled.Dark": "#56657e",
+      "Checkbox.Background.Disabled.Dark": "#0e131f"
+    }
+  }
+}
