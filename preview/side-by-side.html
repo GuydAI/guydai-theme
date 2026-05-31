@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GuydAI — Navy vs Pure Black</title>
+<style>
+  :root {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --black:#04050a; --chrome:#080a12; --card:#0e131f; --bd:#18202e; --bdl:#263141;
+    --blue:#38bdf8; --pink:#ff2e97; --green:#34d399;
+    --tx:#eaf2fb; --dim:#93a3ba; --mut:#56657e;
+    --sel:#0d2c44; --ink:#04141f;
+    --pglow:rgba(56,189,248,.55); --kglow:rgba(255,46,151,.55);
+
+    /* per-scheme editor bg */
+    --navy:#0a0e1a; --navyCr:#11192c;
+    --black2:#030507; --black2Cr:#0a1024;
+
+    /* syntax (shared) */
+    --kw:#d4af37; --st:#34d399; --nu:#a78bfa; --cm:#6b7591;
+    --fn:#60a5fa; --cl:#ffe9a3; --bi:#5eead4; --pa:#b4bdd1; --df:#f8fafc;
+    --ln:#3a4665;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; background:
+      radial-gradient(1200px 600px at 18% -10%, rgba(56,189,248,.10), transparent 60%),
+      radial-gradient(900px 500px at 88% 110%, rgba(255,46,151,.10), transparent 60%),
+      #060810;
+    color:var(--tx); padding:42px 26px 60px;
+    display:flex; flex-direction:column; align-items:center;
+    min-height:100vh;
+  }
+  .hdr { text-align:center; margin:0 0 26px; max-width:880px; }
+  h1 { font-size:26px; font-weight:800; letter-spacing:-.4px; margin:0 0 8px; }
+  h1 b { color:var(--blue); } h1 i { color:var(--pink); font-style:normal; }
+  .cap { color:var(--dim); font-size:13.5px; margin:0; line-height:1.65; }
+  .cap .k { color:var(--pink); } .cap .b { color:var(--blue); } .cap .g { color:#d4af37; }
+
+  .pair {
+    display:grid; grid-template-columns:1fr 1fr; gap:22px;
+    width:100%; max-width:1240px;
+  }
+
+  .win {
+    border-radius:13px; overflow:hidden; border:1px solid var(--bd);
+    box-shadow:0 30px 80px rgba(0,0,0,.65);
+    font-size:13px; position:relative;
+    backdrop-filter: blur(4px);
+  }
+  .win.navy   { box-shadow:0 30px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(56,189,248,.07); }
+  .win.pb     { box-shadow:0 30px 80px rgba(0,0,0,.85), 0 0 0 1px rgba(255,46,151,.10); }
+
+  .label {
+    position:absolute; top:10px; right:12px; z-index:2;
+    font-size:10.5px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase;
+    padding:4px 9px; border-radius:999px; border:1px solid;
+  }
+  .win.navy .label { color:var(--blue); border-color:rgba(56,189,248,.5); background:rgba(56,189,248,.08); box-shadow:0 0 14px var(--pglow); }
+  .win.pb   .label { color:var(--pink); border-color:rgba(255,46,151,.5); background:rgba(255,46,151,.08); box-shadow:0 0 14px var(--kglow); }
+
+  .titlebar {
+    display:flex; align-items:center; gap:9px;
+    padding:9px 13px; background:var(--black); color:var(--dim);
+    border-bottom:1px solid var(--bd);
+  }
+  .dots { display:flex; gap:6px; }
+  .dots i { width:11px; height:11px; border-radius:50%; display:block; }
+  .titlebar .t b { color:var(--tx); font-weight:600; }
+
+  .toolbar {
+    display:flex; align-items:center; gap:13px;
+    padding:8px 13px; background:var(--black);
+    border-bottom:1px solid var(--bd);
+  }
+  .toolbar .proj { color:var(--tx); font-weight:600; }
+  .toolbar .proj small { color:var(--mut); }
+  .run {
+    margin-left:auto; background:var(--blue); color:var(--ink);
+    padding:5px 15px; border-radius:6px; font-weight:700;
+    box-shadow:0 0 16px var(--pglow);
+  }
+  .ic { color:var(--dim); font-size:15px; }
+
+  .bodyrow { display:flex; background:var(--chrome); min-height:340px; }
+  .stripe {
+    display:flex; flex-direction:column; gap:16px;
+    padding:12px 10px; background:var(--black);
+    border-right:1px solid var(--bd); color:var(--mut); font-size:14px;
+  }
+  .stripe .on { color:var(--blue); text-shadow:0 0 11px var(--pglow); }
+  .tree {
+    width:170px; padding:11px 11px;
+    border-right:1px solid var(--bd); color:var(--dim);
+  }
+  .tree .h { color:var(--mut); text-transform:uppercase; font-size:10px; letter-spacing:1.2px; margin-bottom:10px; }
+  .tree .row { padding:4px 6px; border-radius:5px; white-space:nowrap; display:flex; align-items:center; }
+  .tree .row.sel { background:var(--sel); color:var(--tx); }
+  .tree .row.ind { padding-left:20px; }
+  .badge {
+    background:var(--pink); color:var(--ink);
+    border-radius:9px; padding:0 7px; font-size:10px; font-weight:800;
+    margin-left:auto; box-shadow:0 0 11px var(--kglow);
+  }
+
+  .main { flex:1; display:flex; flex-direction:column; min-width:0; position:relative; }
+  .tabs { display:flex; background:var(--chrome); border-bottom:1px solid var(--bd); }
+  .tab { padding:8px 16px; color:var(--mut); border-right:1px solid var(--bd); }
+  .tab.active { color:var(--tx); border-bottom:2px solid var(--blue); box-shadow:0 3px 13px var(--pglow); }
+
+  .editor {
+    flex:1; padding:11px 4px 16px 0;
+    font-family:'JetBrains Mono',Consolas,Menlo,monospace;
+    font-size:12px; line-height:1.7;
+  }
+  .navy .tab.active { background:var(--navy); }
+  .navy .editor    { background:var(--navy); }
+  .navy .line.cr   { background:var(--navyCr); }
+
+  .pb .tab.active { background:var(--black2); }
+  .pb .editor    { background:var(--black2); }
+  .pb .line.cr   { background:var(--black2Cr); }
+
+  .line { display:flex; white-space:pre; }
+  .ln { color:var(--ln); width:30px; text-align:right; margin-right:15px; user-select:none; flex:none; }
+  .kw{color:var(--kw);font-weight:700;} .st{color:var(--st);} .nu{color:var(--nu);}
+  .cm{color:var(--cm);font-style:italic;} .fn{color:var(--fn);} .cl{color:var(--cl);}
+  .bi{color:var(--bi);} .pa{color:var(--pa);font-style:italic;} .df{color:var(--df);}
+  .caret{display:inline-block;width:2px;height:14px;background:var(--blue);vertical-align:-2px;box-shadow:0 0 7px var(--pglow);}
+
+  .statusbar {
+    display:flex; align-items:center; gap:17px;
+    padding:6px 14px; background:var(--black);
+    border-top:1px solid var(--bd); color:var(--dim); font-size:11.5px;
+  }
+  .statusbar .br { color:var(--blue); }
+  .statusbar .enc { color:var(--pink); margin-left:auto; }
+
+  .footnote {
+    margin-top:24px; color:var(--mut); font-size:12px; text-align:center;
+    max-width:880px; line-height:1.6;
+  }
+  .footnote code { color:var(--tx); background:#0e131f; padding:1px 6px; border-radius:4px; border:1px solid var(--bd); }
+</style>
+</head>
+<body>
+  <div class="hdr">
+    <h1>GuydAI — <b>Navy</b> <span style="color:var(--mut)">vs</span> <i>Pure Black</i></h1>
+    <p class="cap">One palette, two editor backgrounds. Same <span class="g">gold</span> keywords,
+      <span class="b">blue</span> functions, green strings, purple numbers — pick the surface that suits your monitor.</p>
+  </div>
+
+  <div class="pair">
+    <!-- ── LEFT: GuydAI (Navy) ── -->
+    <div class="win navy">
+      <span class="label">GuydAI · Navy</span>
+      <div class="titlebar">
+        <div class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <div class="t">guydai · <b>main.py</b></div>
+      </div>
+      <div class="toolbar">
+        <span class="proj">guydai <small>&#9662;</small></span>
+        <span class="run">&#9654; Run</span>
+        <span class="ic">&#128270;</span><span class="ic">&#9881;</span>
+      </div>
+      <div class="bodyrow">
+        <div class="stripe"><span class="on">&#9776;</span><span>&#9095;</span><span>&#9733;</span><span>&#9881;</span></div>
+        <div class="tree">
+          <div class="h">Project</div>
+          <div class="row">&#9656; api</div>
+          <div class="row sel">&#9662; core</div>
+          <div class="row ind">scanner.py</div>
+          <div class="row ind">scoring.py</div>
+          <div class="row">&#9656; services <span class="badge">3</span></div>
+          <div class="row">&#9656; tests <span class="badge">7</span></div>
+        </div>
+        <div class="main">
+          <div class="tabs"><span class="tab active">main.py</span><span class="tab">scoring.py</span></div>
+          <div class="editor">
+            <div class="line"><span class="ln">1</span><span class="st">"""GuydAI entry point."""</span></div>
+            <div class="line"><span class="ln">2</span><span class="kw">import</span> <span class="df">logging</span></div>
+            <div class="line"><span class="ln">3</span><span class="kw">from</span> <span class="df">fastapi</span> <span class="kw">import</span> <span class="cl">FastAPI</span></div>
+            <div class="line"><span class="ln">4</span></div>
+            <div class="line"><span class="ln">5</span><span class="df">logger</span> = <span class="df">logging</span>.<span class="fn">getLogger</span>(<span class="bi">__name__</span>)</div>
+            <div class="line"><span class="ln">6</span></div>
+            <div class="line"><span class="ln">7</span><span class="cl">@asynccontextmanager</span></div>
+            <div class="line"><span class="ln">8</span><span class="kw">async def</span> <span class="fn">lifespan</span>(<span class="pa">app</span>: <span class="cl">FastAPI</span>):</div>
+            <div class="line cr"><span class="ln">9</span>    <span class="df">logger</span>.<span class="fn">info</span>(<span class="st">"GuydAI starting"</span>, <span class="pa">port</span>=<span class="nu">8000</span>)<span class="caret"></span></div>
+            <div class="line"><span class="ln">10</span>    <span class="kw">yield</span></div>
+            <div class="line"><span class="ln">11</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="statusbar"><span class="br">&#9095; main</span><span>Python 3.12</span><span>UTF-8</span><span class="enc">&#9679; #0a0e1a</span></div>
+    </div>
+
+    <!-- ── RIGHT: GuydAI Pure Black ── -->
+    <div class="win pb">
+      <span class="label">GuydAI · Pure Black</span>
+      <div class="titlebar">
+        <div class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <div class="t">guydai · <b>main.py</b></div>
+      </div>
+      <div class="toolbar">
+        <span class="proj">guydai <small>&#9662;</small></span>
+        <span class="run">&#9654; Run</span>
+        <span class="ic">&#128270;</span><span class="ic">&#9881;</span>
+      </div>
+      <div class="bodyrow">
+        <div class="stripe"><span class="on">&#9776;</span><span>&#9095;</span><span>&#9733;</span><span>&#9881;</span></div>
+        <div class="tree">
+          <div class="h">Project</div>
+          <div class="row">&#9656; api</div>
+          <div class="row sel">&#9662; core</div>
+          <div class="row ind">scanner.py</div>
+          <div class="row ind">scoring.py</div>
+          <div class="row">&#9656; services <span class="badge">3</span></div>
+          <div class="row">&#9656; tests <span class="badge">7</span></div>
+        </div>
+        <div class="main">
+          <div class="tabs"><span class="tab active">main.py</span><span class="tab">scoring.py</span></div>
+          <div class="editor">
+            <div class="line"><span class="ln">1</span><span class="st">"""GuydAI entry point."""</span></div>
+            <div class="line"><span class="ln">2</span><span class="kw">import</span> <span class="df">logging</span></div>
+            <div class="line"><span class="ln">3</span><span class="kw">from</span> <span class="df">fastapi</span> <span class="kw">import</span> <span class="cl">FastAPI</span></div>
+            <div class="line"><span class="ln">4</span></div>
+            <div class="line"><span class="ln">5</span><span class="df">logger</span> = <span class="df">logging</span>.<span class="fn">getLogger</span>(<span class="bi">__name__</span>)</div>
+            <div class="line"><span class="ln">6</span></div>
+            <div class="line"><span class="ln">7</span><span class="cl">@asynccontextmanager</span></div>
+            <div class="line"><span class="ln">8</span><span class="kw">async def</span> <span class="fn">lifespan</span>(<span class="pa">app</span>: <span class="cl">FastAPI</span>):</div>
+            <div class="line cr"><span class="ln">9</span>    <span class="df">logger</span>.<span class="fn">info</span>(<span class="st">"GuydAI starting"</span>, <span class="pa">port</span>=<span class="nu">8000</span>)<span class="caret"></span></div>
+            <div class="line"><span class="ln">10</span>    <span class="kw">yield</span></div>
+            <div class="line"><span class="ln">11</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="statusbar"><span class="br">&#9095; main</span><span>Python 3.12</span><span>UTF-8</span><span class="enc">&#9679; #030507</span></div>
+    </div>
+  </div>
+
+  <p class="footnote">
+    One install ships both. Activate the chrome via
+    <code>Settings → Appearance → Theme → GuydAI</code>, then switch the editor surface in
+    <code>Settings → Editor → Color Scheme</code> between <b style="color:var(--blue)">GuydAI</b> and
+    <b style="color:var(--pink)">GuydAI Pure Black</b>.
+  </p>
+</body>
+</html>

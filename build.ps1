@@ -25,6 +25,7 @@ Add-Entry $zip (Join-Path $src 'META-INF\pluginIcon.svg')   'META-INF/pluginIcon
 Add-Entry $zip (Join-Path $src 'META-INF\pluginIcon_dark.svg') 'META-INF/pluginIcon_dark.svg'
 Add-Entry $zip (Join-Path $src 'guydai.theme.json')         'guydai.theme.json'
 Add-Entry $zip (Join-Path $src 'GuydAI.icls')               'GuydAI.icls'
+Add-Entry $zip (Join-Path $src 'GuydAI-PureBlack.icls')     'GuydAI-PureBlack.icls'
 $zip.Dispose()
 
 Write-Host ("Built " + $jar + "  (" + (Get-Item $jar).Length + " bytes)") -ForegroundColor Green

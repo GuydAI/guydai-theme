@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.guydai.theme</id>
   <name>GuydAI Theme</name>
-  <version>1.1.2</version>
+  <version>1.2.0</version>
   <vendor email="admin@guydai.com" url="https://guydai.com">GuydAI</vendor>
 
   <description><![CDATA[
@@ -14,17 +14,20 @@
     <b style="color:#38bdf8">electric-blue</b> lead accents, and <b style="color:#ff2e97">hot-pink</b>
     pops &mdash; wrapped around a <b>navy editor</b> with warm <b style="color:#D4AF37">gold</b> syntax.</p>
 
-    <p>Ships as two independent layers:</p>
+    <p>Ships as independent layers:</p>
     <ul>
       <li><b>IDE chrome &mdash; "Cyber Ice"</b> &mdash; pure-black toolbars, tabs, tool windows and popups,
           with electric-blue (buttons, active-tab underline, focus, caret) and hot-pink (badges,
           completion-match, link hover, bookmarks) accents.</li>
       <li><b>Editor color scheme &mdash; "GuydAI"</b> &mdash; navy <code>#0a0e1a</code> background with
           gold keywords, blue functions, green strings and purple numbers.</li>
+      <li><b>Editor color scheme &mdash; "GuydAI Pure Black"</b> &mdash; same palette, near-black
+          <code>#030507</code> background for OLED / max-contrast setups.</li>
     </ul>
 
     <p><b>Activate:</b> Settings &rarr; Appearance &amp; Behavior &rarr; Appearance &rarr; Theme &rarr; <b>GuydAI</b>.
-       The matching editor color scheme is applied automatically.</p>
+       The default "GuydAI" editor scheme is applied automatically &mdash; switch to "GuydAI Pure Black"
+       under Settings &rarr; Editor &rarr; Color Scheme.</p>
 
     <p>Source &amp; downloads: <a href="https://github.com/GuydAI/guydai-theme">github.com/GuydAI/guydai-theme</a></p>
 
@@ -35,6 +38,9 @@
   ]]></description>
 
   <change-notes><![CDATA[
+    <b>1.2.0</b> &mdash; New "GuydAI Pure Black" editor color scheme bundled alongside the default.
+                        Same palette, near-black <code>#030507</code> background for OLED / max-contrast setups.
+                        Pick it under Settings &rarr; Editor &rarr; Color Scheme.<br/>
     <b>1.1.2</b> &mdash; Plugin icon (gold diamond logo) and marketplace polish.<br/>
     <b>1.1.1</b> &mdash; Overview screenshot &amp; richer plugin description.<br/>
     <b>1.1.0</b> &mdash; "Cyber Ice" redesign: pure-black chrome, electric-blue lead, hot-pink pops.
