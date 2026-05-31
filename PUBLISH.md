@@ -7,7 +7,7 @@ This is a one-time form submission. After it's approved, users find the theme vi
 
 You'll need:
 - A JetBrains account (the same one you use to sign in to PyCharm — free).
-- The latest `GuydAI-Theme.jar` from this repo's root (currently **v1.1.2**, 7.3 KB).
+- The latest `GuydAI-Theme.jar` from this repo's root (currently **v1.2.0**, ~9.7 KB).
 - ~5 minutes for the form.
 
 ## Steps
@@ -39,9 +39,13 @@ The form will show some fields the `.jar` can't pre-fill. Use these:
 | **Vendor email** | `admin@guydai.com` |
 
 ### 4. Add screenshots
-Upload `preview/cyber-ice.png` from this repo (already 1800x1760 @ 2x).
-You can add up to 5 — the others in `preview/` (browser HTML) won't help here,
-but you can re-render them at any time if you want more variations.
+Upload from `preview/`:
+1. `cyber-ice.png` — the headline Cyber Ice + navy editor shot.
+2. `side-by-side.png` — navy vs pure-black editor schemes (highlights the v1.2.0 addition).
+3. `pure-black.png` — the standalone pure-black variant.
+
+You can add up to 5. The `.html` files in `preview/` are sources you can re-render
+at any time if you want more variations.
 
 ### 5. Submit for moderation
 Click **Submit**. JetBrains reviews first-time plugins manually — usually
@@ -56,6 +60,18 @@ Once approved, releasing an update is a 30-second flow:
 1. Edit files under `src/`, bump `<version>` in `plugin.xml`, update `<change-notes>`.
 2. `./build.ps1`
 3. Marketplace → your plugin's page → **Update Plugin** → upload the new `.jar`.
+
+### Updating while still in initial moderation
+
+If you want to ship a new version *before* the first review finishes (e.g. you
+uploaded v1.1.2 and want moderators to see v1.2.0 instead):
+
+1. Build the new `.jar` (`./build.ps1`).
+2. Marketplace → your plugin's page → **Update Plugin** → upload the new `.jar`.
+3. The newer build supersedes the pending one — moderators review whatever the
+   latest version is, and you generally keep your queue position.
+
+You don't lose the existing listing or have to re-submit the form.
 
 The Marketplace also offers a **command-line publish** via `gradle-intellij-plugin`
 or `intellijPlatform` — overkill for a theme plugin, but worth knowing if you ever
