@@ -1,9 +1,10 @@
 # GuydAI Theme
 
 A dark **PyCharm / IntelliJ theme** with a cyber edge: pure-black chrome, electric-blue
-lead accents, and hot-pink pops — wrapped around a navy editor with warm gold syntax.
+lead accents, and hot-pink pops — wrapped around your choice of a navy or pure-black
+editor with warm gold syntax.
 
-![GuydAI — Cyber Ice](preview/cyber-ice.png)
+![GuydAI — Navy vs Pure Black](preview/side-by-side.png)
 
 It ships as independent layers:
 
@@ -17,8 +18,6 @@ It ships as independent layers:
 
 One install ships both editor schemes — pick whichever fits your monitor in
 **Settings → Editor → Color Scheme**.
-
-![GuydAI — Navy vs Pure Black](preview/side-by-side.png)
 
 ## Palette
 
