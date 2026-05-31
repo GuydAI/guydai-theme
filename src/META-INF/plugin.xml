@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.guydai.theme</id>
   <name>GuydAI Theme</name>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <vendor email="admin@guydai.com" url="https://guydai.com">GuydAI</vendor>
 
   <description><![CDATA[
@@ -38,6 +38,7 @@
   ]]></description>
 
   <change-notes><![CDATA[
+    <b>1.2.1</b> &mdash; Marketplace Overview screenshot updated to the navy-vs-pure-black side-by-side preview.<br/>
     <b>1.2.0</b> &mdash; New "GuydAI Pure Black" editor color scheme bundled alongside the default.
                         Same palette, near-black <code>#030507</code> background for OLED / max-contrast setups.
                         Pick it under Settings &rarr; Editor &rarr; Color Scheme.<br/>
