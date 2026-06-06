@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.guydai.theme</id>
   <name>GuydAI Theme</name>
-  <version>1.2.3</version>
+  <version>1.2.4</version>
   <vendor email="admin@guydai.com" url="https://guydai.com">GuydAI</vendor>
 
   <description><![CDATA[
@@ -26,8 +26,8 @@
     </ul>
 
     <p><b>Activate:</b> Settings &rarr; Appearance &amp; Behavior &rarr; Appearance &rarr; Theme &rarr; <b>GuydAI</b>.
-       The default "GuydAI" editor scheme is applied automatically &mdash; switch to "GuydAI Pure Black"
-       under Settings &rarr; Editor &rarr; Color Scheme.</p>
+       The default "GuydAI Pure Black" editor scheme is applied automatically &mdash; switch to "GuydAI" (navy)
+       under Settings &rarr; Editor &rarr; Color Scheme if you prefer the warmer background.</p>
 
     <p>Source &amp; downloads: <a href="https://github.com/GuydAI/guydai-theme">github.com/GuydAI/guydai-theme</a></p>
 
@@ -38,6 +38,9 @@
   ]]></description>
 
   <change-notes><![CDATA[
+    <b>1.2.4</b> &mdash; "GuydAI Pure Black" is now the default editor scheme applied with the theme
+                        (near-black background for max contrast). The original navy "GuydAI" scheme is
+                        still bundled &mdash; switch under Settings &rarr; Editor &rarr; Color Scheme.<br/>
     <b>1.2.3</b> &mdash; Fix: bundled color schemes now actually load. Renamed the in-jar scheme files
                         from .icls to .xml so the IntelliJ Platform's &lt;bundledColorScheme&gt; loader
                         finds them (it appends .xml, not .icls). Both "GuydAI" and "GuydAI Pure Black"
