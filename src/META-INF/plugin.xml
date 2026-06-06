@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.guydai.theme</id>
   <name>GuydAI Theme</name>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <vendor email="admin@guydai.com" url="https://guydai.com">GuydAI</vendor>
 
   <description><![CDATA[
@@ -38,6 +38,9 @@
   ]]></description>
 
   <change-notes><![CDATA[
+    <b>1.2.2</b> &mdash; Fix: register "GuydAI Pure Black" via &lt;bundledColorScheme&gt; so it actually
+                        appears in Settings &rarr; Editor &rarr; Color Scheme (1.2.0 bundled the file but
+                        forgot to wire it up).<br/>
     <b>1.2.1</b> &mdash; Marketplace Overview screenshot updated to the navy-vs-pure-black side-by-side preview.<br/>
     <b>1.2.0</b> &mdash; New "GuydAI Pure Black" editor color scheme bundled alongside the default.
                         Same palette, near-black <code>#030507</code> background for OLED / max-contrast setups.
@@ -58,5 +61,9 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <themeProvider id="com.guydai.theme.guydai" path="/guydai.theme.json"/>
+    <!-- Register both schemes so they show up in the Color Scheme dropdown.
+         The theme's editorScheme="/GuydAI.icls" auto-selects the navy one. -->
+    <bundledColorScheme path="/GuydAI"/>
+    <bundledColorScheme path="/GuydAI-PureBlack"/>
   </extensions>
 </idea-plugin>

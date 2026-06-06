@@ -7,7 +7,7 @@ This is a one-time form submission. After it's approved, users find the theme vi
 
 You'll need:
 - A JetBrains account (the same one you use to sign in to PyCharm — free).
-- The latest `GuydAI-Theme.jar` from this repo's root (currently **v1.2.1**, ~9.7 KB).
+- The latest `GuydAI-Theme.jar` from this repo's root (currently **v1.2.2**, ~9.7 KB).
 - ~5 minutes for the form.
 
 ## Steps
