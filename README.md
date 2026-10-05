@@ -16,6 +16,9 @@ It ships as independent layers:
 - **Editor color scheme — "GuydAI Pure Black"** — same palette, near-black `#030507`
   background for OLED / max-contrast setups.
 
+On the **Islands** UI (2025.3+), pick **GuydAI Islands** in the Theme dropdown instead.
+It uses the same Cyber Ice accents on rounded pure-black islands.
+
 One install ships both editor schemes — pick whichever fits your monitor in
 **Settings → Editor → Color Scheme**.
 
@@ -83,6 +86,7 @@ build.ps1                 rebuilds the .jar from src/
 src/
   META-INF/plugin.xml     plugin manifest
   guydai.theme.json       UI chrome theme
+  guydai-islands.theme.json  Islands variant (generated: python make_islands.py)
   GuydAI.icls             navy editor scheme bundled into the jar
   GuydAI-PureBlack.icls   pure-black editor scheme bundled into the jar
 preview/                  browser mockups + screenshots

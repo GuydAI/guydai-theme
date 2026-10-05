@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.guydai.theme</id>
   <name>GuydAI Theme</name>
-  <version>1.2.4</version>
+  <version>1.3.0</version>
   <vendor email="admin@guydai.com" url="https://guydai.com">GuydAI</vendor>
 
   <description><![CDATA[
@@ -29,15 +29,15 @@
        The default "GuydAI Pure Black" editor scheme is applied automatically &mdash; switch to "GuydAI" (navy)
        under Settings &rarr; Editor &rarr; Color Scheme if you prefer the warmer background.</p>
 
-    <p>Source &amp; downloads: <a href="https://github.com/GuydAI/guydai-theme">github.com/GuydAI/guydai-theme</a></p>
+    <p><b>Islands UI (2025.3+):</b> pick <b>GuydAI Islands</b> in the same Theme dropdown for the
+       rounded, floating tool-window layout.</p>
 
-    <p style="color:#888; font-size:11px; margin-top:14px;">
-      Built by <a href="https://guydai.com">guydai.com</a> &mdash; an AI system that watches the market
-      24/7, scores every opportunity, and can trade for you.
-    </p>
+    <p>Source &amp; downloads: <a href="https://github.com/GuydAI/guydai-theme">github.com/GuydAI/guydai-theme</a></p>
   ]]></description>
 
   <change-notes><![CDATA[
+    <b>1.3.0</b> &mdash; New "GuydAI Islands" UI theme for the Islands layout (2025.3+):
+                        Cyber Ice accents on rounded pure-black islands.<br/>
     <b>1.2.4</b> &mdash; "GuydAI Pure Black" is now the default editor scheme applied with the theme
                         (near-black background for max contrast). The original navy "GuydAI" scheme is
                         still bundled &mdash; switch under Settings &rarr; Editor &rarr; Color Scheme.<br/>
@@ -66,8 +66,9 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <themeProvider id="com.guydai.theme.guydai" path="/guydai.theme.json"/>
+    <themeProvider id="com.guydai.theme.guydai.islands" path="/guydai-islands.theme.json"/>
     <!-- Register both schemes so they show up in the Color Scheme dropdown.
-         The theme's editorScheme="/GuydAI.icls" auto-selects the navy one. -->
+         Each theme's editorScheme picks the default (Pure Black). -->
     <bundledColorScheme path="/GuydAI"/>
     <bundledColorScheme path="/GuydAI-PureBlack"/>
   </extensions>

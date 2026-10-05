@@ -24,6 +24,7 @@ Add-Entry $zip (Join-Path $src 'META-INF\plugin.xml')       'META-INF/plugin.xml
 Add-Entry $zip (Join-Path $src 'META-INF\pluginIcon.svg')   'META-INF/pluginIcon.svg'
 Add-Entry $zip (Join-Path $src 'META-INF\pluginIcon_dark.svg') 'META-INF/pluginIcon_dark.svg'
 Add-Entry $zip (Join-Path $src 'guydai.theme.json')         'guydai.theme.json'
+Add-Entry $zip (Join-Path $src 'guydai-islands.theme.json') 'guydai-islands.theme.json'
 # Color schemes are bundled as .xml (the convention for plugin-bundled schemes).
 # The platform's <bundledColorScheme> auto-appends .xml to the path attribute,
 # so files MUST be .xml inside the jar even though the source files are .icls
