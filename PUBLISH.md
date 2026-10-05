@@ -41,8 +41,9 @@ The form will show some fields the `.jar` can't pre-fill. Use these:
 ### 4. Add screenshots
 Upload from `preview/`:
 1. `side-by-side.png` — navy vs pure-black editor schemes (lead shot).
-2. `pure-black.png` — the standalone pure-black variant.
-3. `cyber-ice.png` — the original Cyber Ice + navy editor shot.
+2. `islands.png` — classic vs Islands layout (the GuydAI Islands theme, 2025.3+).
+3. `pure-black.png` — the standalone pure-black variant.
+4. `cyber-ice.png` — the original Cyber Ice + navy editor shot.
 
 You can add up to 5. The `.html` files in `preview/` are sources you can re-render
 at any time if you want more variations.

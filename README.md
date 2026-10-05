@@ -19,6 +19,8 @@ It ships as independent layers:
 On the **Islands** UI (2025.3+), pick **GuydAI Islands** in the Theme dropdown instead.
 It uses the same Cyber Ice accents on rounded pure-black islands.
 
+![GuydAI — Classic vs Islands](preview/islands.png)
+
 One install ships both editor schemes — pick whichever fits your monitor in
 **Settings → Editor → Color Scheme**.
 
